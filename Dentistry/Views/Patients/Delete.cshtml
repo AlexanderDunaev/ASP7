@@ -1,0 +1,63 @@
+﻿@model Dentistry.Models.Patient
+
+@{
+    ViewData["Title"] = "Удалить";
+}
+
+<h1>
+    <p align="center">Удаление пациента</p>
+</h1>
+
+<div>
+    <hr />
+    <dl>
+        <dt class = "labelB">
+            Фамилия
+        </dt>
+        <dd class = "labelM">
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt class="labelB">
+            Имя
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="labelB">
+            Отчество
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.MiddleName)
+        </dd>
+        <dt class="labelB">
+            Пол
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt class="labelB">
+            Категория
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.AgeCategory)
+        </dd>
+        <dt class="labelB">
+            Телефон
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class="labelB">
+            Город
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete" style="text-align:center">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="edt" style="background-color:#dc3545" /> |
+        <button asp-action="Index" class="edt" style="background-color:#0d6efd">К списку пациентов</button>
+    </form>
+</div>

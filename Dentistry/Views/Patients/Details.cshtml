@@ -1,0 +1,59 @@
+﻿@model Dentistry.Models.Patient
+
+@{
+    ViewData["Title"] = "Детали";
+}
+
+<h1><p align="center">Информация о пациенте</p></h1>
+
+<div>
+    <hr />
+    <dl>
+        <dt class="labelB">
+            Фамилия
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt class="labelB">
+            Имя
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="labelB">
+            Отчество
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.MiddleName)
+        </dd>
+        <dt class="labelB">
+            Пол
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt class="labelB">
+            Категория возраста
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.AgeCategory)
+        </dd>
+        <dt class="labelB">
+            Телефон
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class="labelB">
+            Город
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+    </dl>
+</div>
+<div style ="text-align:center">
+    <a  class="ab"  asp-action="Edit" asp-route-id="@Model?.Id">Редактировать</a> |
+    <a class="ab" style="background-color:#0d6efd" asp-action="Index">К списку пациентов</a>
+</div>

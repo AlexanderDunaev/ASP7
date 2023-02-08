@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Dentistry.Models.Reception>
+
+@{
+	ViewData["Title"] = "Список приёмов";
+}
+<h1><p align="center">Список приёмов</p></h1>
+
+
+<p>
+	<a class="addBt" asp-action="Create">Добавить приём</a>
+</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				<a asp-action="Index" asp-route-sr="@ViewBag.PatientSort">Фамилия пациента</a>
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sr="@ViewBag.DoctorSort">Фамилия врача</a>
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sr="@ViewBag.CabinetSort">Кабинет</a>
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sr="@ViewBag.DateSort">Дата приёма</a>
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sr="@ViewBag.TimeSort">Время приёма</a>
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sr="@ViewBag.StatusSort">Статус</a>
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Patient!.Surname)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Doctor!.Surname)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Cabinet)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Date)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Time)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Status)
+				</td>
+				<td style="text-align:center">
+					<a class="editbt" style="background-color:#0d6efd" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+					<a class="editbt" style="background-color:#198754"  asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+					<a class="editbt" style="background-color:#dc3545"  asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

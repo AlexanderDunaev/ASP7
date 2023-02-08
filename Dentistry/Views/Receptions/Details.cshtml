@@ -1,0 +1,59 @@
+﻿@model Dentistry.Models.Reception
+
+@{
+    ViewData["Title"] = "Детали";
+}
+
+<h1>
+    <p align="center">Детали приёма</p>
+</h1>
+
+<div>
+    <hr />
+    <dl>
+        <dt class="labelB">
+            Доктор
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Doctor.Surname) 
+            @Html.DisplayFor(model => model.Doctor.Name)
+            @Html.DisplayFor(model => model.Doctor.MiddleName)
+        </dd>
+        <dt class="labelB">
+            Пациент
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Patient.Surname)
+            @Html.DisplayFor(model => model.Patient.Name)
+            @Html.DisplayFor(model => model.Patient.MiddleName)
+        </dd>
+        <dt class="labelB">
+            Кабинет
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Cabinet)
+        </dd>
+        <dt class="labelB">
+            Дата приёма
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="labelB">
+            Время приёма
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+        <dt class="labelB">
+            Статус
+        </dt>
+        <dd class="labelM">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<div style="text-align:center">
+    <a class="ab"  asp-action="Edit" asp-route-id="@Model?.Id">Редактировать</a> |
+	<a asp-action="Index" class="ab" style="background-color:#0d6efd">К списку приёмов</a>
+</div>

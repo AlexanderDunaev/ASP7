@@ -1,0 +1,60 @@
+﻿@model Dentistry.Models.Patient
+
+@{
+    ViewData["Title"] = "Редактировать";
+}
+
+<h1><p align="center">Редактирвание информации о пациенте</p></h1>
+<hr />
+<div>
+    <div>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div>
+                <label asp-for="Surname" class="loginlabel">Фамилия</label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Name" class="loginlabel">Имя</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MiddleName" class="loginlabel">Отчество</label>
+                <input asp-for="MiddleName" class="form-control" />
+                <span asp-validation-for="MiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="loginlabel">Пол</label>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgeCategory" class="loginlabel">Категория возраста</label>
+                <input asp-for="AgeCategory" class="form-control" />
+                <span asp-validation-for="AgeCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="loginlabel">Телефон</label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="loginlabel">Город</label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div style="text-align:center; padding-top:10px">
+                <input type="submit" value="Сохранить" class="edt" />
+                <button asp-action="Index" class="edt" style="background-color:#0d6efd">К списку пациентов</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

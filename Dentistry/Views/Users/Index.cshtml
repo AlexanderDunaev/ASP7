@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Dentistry.Models.User>
+@{
+	ViewBag.Title = "Список пользователей";
+}
+<div style="padding-top:10px; padding-bottom-10px">
+	<a asp-action="Create" class="btn btn-primary" style="text-align:center; height:auto">Добавить пользователя</a>
+</div>
+<div style="padding-top:10px; padding-bottom-10px">
+	<a asp-controller="Roles" asp-action="UserList" class="btn btn-primary" style="text-align:center; height:auto">Изменить роль пользователя</a>
+</div>
+
+<table class="table">
+	<tr><th>Email</th><th>Имя пользователя</th><th></th></tr>
+	@foreach (var user in Model)
+	{
+		<tr>
+			<td class="onlytext">@user.Email</td>
+			<td class="onlytext">@user.Name</td>
+			<td>
+				<form asp-action="Delete" asp-route-id="@user.Id" method="post">
+					<button class="bt" style="background-color:#0d6efd" asp-action="Edit" asp-route-id="@user.Id">Изменить</button>
+					<button class="bt" style="background-color:#198754" asp-action="ChangePassword" asp-route-id="@user.Id">Сменить пароль</button>
+					<button class="bt" style="background-color:#dc3545" type="submit">Удалить</button>
+				</form>
+			</td>
+		</tr>
+	}
+</table>

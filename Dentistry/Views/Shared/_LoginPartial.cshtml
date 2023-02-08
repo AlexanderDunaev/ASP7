@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+	var user = await UserManager.GetUserAsync(User);
+	<a class="text-dark" asp-controller="Users" asp-action="Index" title="Manage">Здравствуй "@user?.Name"</a>
+	<a class="text-dark" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")">Выход</a>
+}
+else
+{
+	<a class="text-dark" asp-controller="Account" asp-action="Login">Вход</a>
+}

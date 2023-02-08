@@ -1,0 +1,19 @@
+﻿@model Dentistry.Models.ViewModels.LoginViewModel
+
+<h2>Вход в приложение</h2>
+<form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
+	<div asp-validation-summary="ModelOnly"></div>
+	<div>
+		<label asp-for="Email" class="loginlabel"></label><br />
+		<input asp-for="Email" class="logininput"/>
+		<span asp-validation-for="Email"></span>
+	</div>
+	<div>
+		<label asp-for="Password" class="loginlabel"></label><br />
+		<input asp-for="Password" class="logininput" />
+		<span asp-validation-for="Password"></span>
+	</div>
+	<div style="padding-top:10px; text-align:center">
+		<input type="submit" value="Войти"  class="btn" style="width:95%"/>
+	</div>
+</form>

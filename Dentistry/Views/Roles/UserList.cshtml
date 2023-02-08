@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Dentistry.Models.User>
+
+<h2>Список пользователей</h2>
+<table class="table">
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td class="loginlabel">@user.Name</td>
+            <td>
+                <a style="text-align:center" class="bt" asp-action="Edit" asp-route-userid="@user.Id">Права доступа</a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,22 @@
+﻿@model Dentistry.Models.ViewModels.CreateUserViewModel
+@{
+    ViewBag.Title = "Добавление пользователя";
+}
+<form asp-action="Create" asp-controller="Users">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Email" class="loginlabel">Email</label>
+        <input type="text" asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="loginlabel">Пароль</label>
+        <input type="password" asp-for="Password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Name" class="loginlabel">Имя пользователя</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div style="padding-top:10px; text-align:center">
+        <input type="submit" value="Добавить" class="btn" style="width:95%" />
+    </div>
+</form>

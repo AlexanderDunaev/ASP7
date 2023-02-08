@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Dentistry.Models.Doctor>
+
+@{
+	ViewData["Title"] = "Список докторов";
+}
+
+<h1><p align="center">Список докторов</p></h1>
+
+<p>
+	<a class="addBt" asp-action="Create">Добавить доктора</a>
+</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				<a asp-action="Index" asp-route-sd="@ViewBag.SurnameSort">Фамилия</a>
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sd="@ViewBag.NameSort">Имя</a>
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sd="@ViewBag.MiddleNameSort">Отчество</a>
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sd="@ViewBag.AgeSort">Возраст</a>
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sd="@ViewBag.GenderSort">Пол</a>
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sd="@ViewBag.PhoneSort">Телефон</a>
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sd="@ViewBag.SpecialitySort">Специальность</a>
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Surname)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.MiddleName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Age)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Gender)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Phone)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Speciality)
+				</td>
+				<td style="text-align:center">
+					<a class="editbt" style="background-color:#0d6efd" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+					<a class="editbt" style="background-color:#198754" asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+					<a class="editbt" style="background-color:#dc3545" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
